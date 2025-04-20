@@ -94,3 +94,41 @@ RE::TESSound* CreateSoundMarker(RE::StaticFunctionTag*) {
 
     return newForm;
 }
+
+RE::TESMessage* CreateMessage(
+    RE::StaticFunctionTag*,
+    std::string messageText,
+    bool isMessageBox,
+    bool autoDisplay,
+    std::vector<std::string> buttonTexts)
+{
+    logger::trace("called");
+
+    auto* newForm = RE::IFormFactory::GetConcreteFormFactoryByType<RE::TESMessage>()->Create();
+    if (!gfuncs::IsFormValid(newForm)) {
+        logger::error("failed");
+        return nullptr;
+    }
+
+    newForm->messageText = messageText;
+    newForm->flags = 0;
+
+    if (isMessageBox) {
+        newForm->flags.set(RE::TESMessage::Flag::kMessageBox);
+    }
+    if (autoDisplay) {
+        newForm->flags.set(RE::TESMessage::Flag::kAutoDisplay);
+    }
+
+    if (!buttonTexts.empty()) {
+        newForm->menuButtons.clear();
+        for (const auto& buttonText : buttonTexts) {
+            RE::BSFixedString fixedStr(buttonText.c_str());
+            newForm->menuButtons.push_back(fixedStr);
+        }
+    }
+
+    logger::debug("sucess");
+    
+    return newForm;
+}
