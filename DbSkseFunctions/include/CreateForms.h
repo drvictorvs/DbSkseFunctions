@@ -8,7 +8,8 @@ RE::BGSColorForm* CreateColorForm(RE::StaticFunctionTag*, int color);
 
 RE::BGSConstructibleObject* CreateConstructibleObject(RE::StaticFunctionTag*);
 
-RE::BGSTextureSet* CreateTextureSet(RE::StaticFunctionTag*);
+RE::BGSTextureSet *CreateTextureSet(RE::StaticFunctionTag *);
 
-RE::TESSound* CreateSoundMarker(RE::StaticFunctionTag*);
+RE::TESSound *CreateSoundMarker(RE::StaticFunctionTag *);
 
+RE::BGSMessage *CreateMessage(RE::StaticFunctionTag *);

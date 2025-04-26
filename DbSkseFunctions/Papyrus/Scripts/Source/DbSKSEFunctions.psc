@@ -751,6 +751,9 @@ TextureSet Function CreateTextureSet() Global Native
 ;Create new sound. to set the sound, use Papyrus Extender, 'Po3_SkseFunctions.SetSoundDescriptor(newSoundMarker, akSoundDescriptor)'
 Sound Function CreateSoundMarker() Global Native 
 
+;Create new message. to set the text, use Description Framework, 'DescriptionFramework.SetDescription(akForm, asDesc)'
+Message Function CreateMessage() Global Native 
+
 ;PlaySound / PlaySoundDescriptor returns instanceID like Sound.play(), but you can pass in a form, alias or activeMagicEffect to receive the OnSoundFinish Event.
 ;Example, if your script extends form: 
 ;DbSkseFunctions.PlaySound(akSound, Game.GetPlayer(), 1.0, self) ;play sound and receive the OnSoundFinish event when sound finishes playing.

@@ -94,3 +94,17 @@ RE::TESSound* CreateSoundMarker(RE::StaticFunctionTag*) {
 
     return newForm;
 }
+
+RE::BGSMessage* CreateMessage(RE::StaticFunctionTag*) {
+    logger::trace("called");
+
+    auto* newForm = RE::IFormFactory::GetConcreteFormFactoryByType<RE::BGSMessage>()->Create();
+    if (!gfuncs::IsFormValid(newForm)) {
+        logger::error("failed");
+    }
+    else {
+        logger::debug("success");
+    }
+
+    return newForm;
+}

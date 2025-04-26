@@ -1,4 +1,5 @@
 #include <Windows.h>
+#undef PlaySound
 #include <spdlog/sinks/basic_file_sink.h>
 #include <stdarg.h>
 #include <winbase.h>
@@ -4457,6 +4458,7 @@ bool BindPapyrusFunctions(RE::BSScript::IVirtualMachine* vm) {
     vm->RegisterFunction("CreateConstructibleObject", "DbSkseFunctions", CreateConstructibleObject);
     vm->RegisterFunction("CreateTextureSet", "DbSkseFunctions", CreateTextureSet);
     vm->RegisterFunction("CreateSoundMarker", "DbSkseFunctions", CreateSoundMarker);
+    vm->RegisterFunction("CreateMessage", "DbSkseFunctions", CreateMessage);
     vm->RegisterFunction("PlaySound", "DbSkseFunctions", PlaySound);
     vm->RegisterFunction("PlaySoundDescriptor", "DbSkseFunctions", PlaySoundDescriptor);
     vm->RegisterFunction("SetSoundInstanceSource", "DbSkseFunctions", SetSoundInstanceSource);
